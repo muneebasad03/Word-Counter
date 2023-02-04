@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Counter</title>
+    <style>
+      body {
+        padding: 15px 20px;
+      }
+      h1 {
+        font-size: 35px;
+        background-color: cornflowerblue;
+        text-align: center;
+        margin-bottom: 0px;
+        padding: 12px 12px;
+        letter-spacing: 2px;
+      }
+      textarea {
+        background-color: aliceblue;
+        border-color: black;
+        align-self: center;
+        padding: 150px 150px;
+        width: 78%;
+      }
+      p {
+        text-align: center;
+        font-size: 25px;
+        font-family: monospace;
+        background-color: cornflowerblue;
+        margin-top: 0px;
+      }
+      p span {
+        color: rgb(235, 146, 12);
+        font-size: 26px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Word Counter</h1>
+    <textarea id="textarea" cols="30" rows="10"></textarea>
+    <p>
+      <span id="word">0</span> words <span id="characters">0</span> characters
+    </p>
+
+    <script>
+      let Countch = document.getElementById("textarea");
+
+      Countch.addEventListener("input", function () {
+        var ch = this.value;
+        document.getElementById("characters").innerHTML = ch.length;
+        console.log(ch);
+
+        ch = ch.trim();
+        let words = ch.split(" ");
+        let final = words.filter(function (op) {
+          return op != "";
+        });
+        document.getElementById("word").innerHTML = words.length;
+        console.log(words);
+      });
+    </script>
+  </body>
+</html>
